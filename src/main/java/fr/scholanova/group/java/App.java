@@ -1,5 +1,7 @@
 package fr.scholanova.group.java;
 
+import javax.sql.DataSource;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -23,7 +25,11 @@ public class App
         User user3 = (User)ctx.getBean(User.class);
         user3.setFirstName("Diego");
         user3.setLastName("Simeone");
-        
         System.out.println(user3);
+        
+        
+        DataSource datasource = (DataSource)ctx.getBean("dataSource");
+        System.out.println(datasource);
+        
     }
 }

@@ -16,4 +16,10 @@
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> 
    		<property name="location" value="classpath:jdbc.properties" /> 
 	</bean>
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driverClass}"></property>
+		<property name="url" value="${jdbc.url}"></property>
+		<property name="username" value="${jdbc.username}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+	</bean>
 </beans>
