@@ -4,14 +4,11 @@ import javax.sql.DataSource;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.core.convert.ConversionException;
-import org.springframework.core.convert.support.DefaultConversionService;
-import org.springframework.core.convert.support.GenericConversionService;
 
 import fr.scholanova.group.java.entities.User;
-import fr.scholanova.group.java.tools.aspects.AspectExample;
-import fr.scholanova.group.java.tools.convertors.StringToUserConverter;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class App 
 {
 	public static void main( String[] args )
@@ -20,9 +17,9 @@ public class App
 		user.setFirstName("Javier");
 		user.setLastName("Pastore");
 
-		System.out.println(user);
+		log.debug("Print User", user);
 
-		System.out.println(System.getProperty("java.class.path"));
+		log.warn(System.getProperty("java.class.path"));
 
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("Spring/applicationContext.xml");
 
