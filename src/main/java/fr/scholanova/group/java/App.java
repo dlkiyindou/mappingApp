@@ -8,32 +8,34 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import fr.scholanova.group.java.entities.User;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
+//@Slf4j
 public class App 
 {
 	public static void main( String[] args )
 	{
-		User user = new User();
-		user.setFirstName("Javier");
-		user.setLastName("Pastore");
+//		User user = new User();
+//		user.setFirstName("Javier");
+//		user.setLastName("Pastore");
 
-		log.debug("Print User", user);
-
-		log.warn(System.getProperty("java.class.path"));
+//		log.debug("Print User", user);
+//
+//		log.warn(System.getProperty("java.class.path"));
 
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("Spring/applicationContext.xml");
 
-		System.out.println(ctx.getApplicationName());
+//		System.out.println(ctx.getApplicationName());
 		User user3 = (User)ctx.getBean(User.class);
 		user3.setFirstName("Diego");
 		user3.setLastName("Simeone");
-		System.out.println(user3);
+//		System.out.println(user3);
 		
-//		AspectExample ap = (AspectExample)ctx.getBean("aspectJExemple");
-
-
+		
+		User user4 = (User)ctx.getBean(User.class);
+		user4.setFirstName("Diego");
+		user4.setLastName("Simeone");
+		
 		DataSource datasource = (DataSource)ctx.getBean("dataSource");
-		System.out.println(datasource);
+//		System.out.println(datasource);
 
 
 //		GenericConversionService cs = new DefaultConversionService();

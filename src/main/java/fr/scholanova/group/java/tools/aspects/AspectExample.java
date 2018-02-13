@@ -23,4 +23,9 @@ public class AspectExample {
 	public void printAfter() {
 		System.out.println("User.setFirstName aspecté après");
 	}
+	
+	@After("execution(* fr.scholanova.group.java.entities.User.setLastName(..))")
+	public void printAfter2() {
+		System.out.println("On teste notre code : imprimer après User.setLastName");
+	}
 }
