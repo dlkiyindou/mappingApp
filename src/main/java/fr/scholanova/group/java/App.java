@@ -1,41 +1,28 @@
 package fr.scholanova.group.java;
 
-import javax.sql.DataSource;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import fr.scholanova.group.java.entities.User;
+import fr.scholanova.group.java.services.UserService;
 import lombok.extern.slf4j.Slf4j;
 
-//@Slf4j
+@Slf4j
 public class App 
 {
 	public static void main( String[] args )
 	{
-//		User user = new User();
-//		user.setFirstName("Javier");
-//		user.setLastName("Pastore");
-
-//		log.debug("Print User", user);
-//
-//		log.warn(System.getProperty("java.class.path"));
 
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("Spring/applicationContext.xml");
 
-//		System.out.println(ctx.getApplicationName());
-//		User user3 = (User)ctx.getBean(User.class);
-//		user3.setFirstName("Diego");
-//		user3.setLastName("Simeone");
-//		System.out.println(user3);
+		UserService userService = (UserService)ctx.getBean("userService");
 		
-		
-//		User user4 = (User)ctx.getBean(User.class);
-//		user4.setFirstName("Diego");
-//		user4.setLastName("Simeone");
-		
-		DataSource datasource = (DataSource)ctx.getBean("dataSource");
-//		System.out.println(datasource);
+		log.debug("userService", userService);
+
+		User user = (User)ctx.getBean("user");
+		user.setFirstName("John");
+		user.setLastName("DOE");
+		userService.save(user);
 
 
 //		GenericConversionService cs = new DefaultConversionService();

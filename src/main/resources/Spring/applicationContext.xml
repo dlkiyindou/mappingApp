@@ -38,17 +38,25 @@
 			</props>
 		</property>
 	</bean>
+	<bean id="myTxManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	<bean id="entityManager"
+		class="org.springframework.orm.jpa.support.SharedEntityManagerBean">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
 	<bean id="jpaVendorAdapter"
 		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 		<property name="showSql" value="true" />
 		<property name="generateDdl" value="true" />
-		<property name="databasePlatform" value="org.hibernate.dialect.MySQL5Dialect" />
+		<property name="databasePlatform" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 	</bean>
 	<!-- post-processors for all standard config annotations -->
 	<context:annotation-config />
-
-	<bean id="userDao" class="fr.scholanova.group.java.dao.UserDaoImpl" />
-	<bean id="UserService" class="fr.scholanova.group.java.services.UserServiceImpl">
+	<bean id="userDao" class="fr.scholanova.group.java.dao.UserDaoImpl">
+		<property name="entityManager" ref="entityManager" />
+	</bean>
+	<bean id="userService" class="fr.scholanova.group.java.services.UserServiceImpl">
 		<property name="userDao" ref="userDao" />
 	</bean>
 </beans>

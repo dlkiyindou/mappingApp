@@ -1,5 +1,11 @@
 package fr.scholanova.group.java.services;
 
-public interface UserService {
+import fr.scholanova.group.java.entities.User;
 
+public interface UserService {
+	/**
+	 * 
+	 * @param user
+	 */
+	public void save(User user);
 }
