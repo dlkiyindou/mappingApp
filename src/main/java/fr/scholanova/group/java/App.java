@@ -24,15 +24,15 @@ public class App
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("Spring/applicationContext.xml");
 
 //		System.out.println(ctx.getApplicationName());
-		User user3 = (User)ctx.getBean(User.class);
-		user3.setFirstName("Diego");
-		user3.setLastName("Simeone");
+//		User user3 = (User)ctx.getBean(User.class);
+//		user3.setFirstName("Diego");
+//		user3.setLastName("Simeone");
 //		System.out.println(user3);
 		
 		
-		User user4 = (User)ctx.getBean(User.class);
-		user4.setFirstName("Diego");
-		user4.setLastName("Simeone");
+//		User user4 = (User)ctx.getBean(User.class);
+//		user4.setFirstName("Diego");
+//		user4.setLastName("Simeone");
 		
 		DataSource datasource = (DataSource)ctx.getBean("dataSource");
 //		System.out.println(datasource);

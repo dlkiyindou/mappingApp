@@ -16,16 +16,16 @@ public class AspectExample {
 	
 	@Before("execution(* fr.scholanova.group.java.entities.User.setFirstName(..))")
 	public void printBefore() {
-		System.out.println("User.setFirstName aspecté avant");
+		// Do something
 	}
 	
 	@After("execution(* fr.scholanova.group.java.entities.User.setFirstName(..))")
 	public void printAfter() {
-		System.out.println("User.setFirstName aspecté après");
+		// Do something
 	}
 	
 	@After("execution(* fr.scholanova.group.java.entities.User.setLastName(..))")
 	public void printAfter2() {
-		System.out.println("On teste notre code : imprimer après User.setLastName");
+		// Do something
 	}
 }

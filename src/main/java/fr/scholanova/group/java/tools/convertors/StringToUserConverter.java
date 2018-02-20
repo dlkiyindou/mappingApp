@@ -14,11 +14,14 @@ public class StringToUserConverter implements Converter<String, User>{
 		String id = "null", firstName = "Diego", lastName="Simeone";
 		
 		GenericConversionService cs = new DefaultConversionService();
-		Integer _id = null; //cs.convert(id, Integer.class);
 		String _first = cs.convert(firstName, String.class);
 		String _last = cs.convert(lastName, String.class);
 		
-		return new User(_id, _first, _last);
+		User user = new User();
+		user.setFirstName(_first);
+		user.setLastName(_last);
+		
+		return user;
 	}
 
 }
