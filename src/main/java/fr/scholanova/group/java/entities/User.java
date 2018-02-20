@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -34,7 +35,7 @@ public class User extends AbstractEntity {
 	@Column
 	private String lastName;
 	
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
 	      name="User_Address",
 		      joinColumns=@JoinColumn(name="UserId", referencedColumnName="Id"),

@@ -1,5 +1,7 @@
 package fr.scholanova.group.java.services;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import fr.scholanova.group.java.dao.UserDao;
@@ -18,5 +20,12 @@ public class UserServiceImpl implements UserService {
 	 */
 	public void save(User user) {
 		userDao.save(user);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public Collection<User> getByFirstName(String firstName) {
+		return userDao.findByFirstName(firstName);
 	}
 }

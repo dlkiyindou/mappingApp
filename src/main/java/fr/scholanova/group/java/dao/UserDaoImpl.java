@@ -6,18 +6,15 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import fr.scholanova.group.java.entities.User;
-import lombok.Getter;
 import lombok.Setter;
 
 @Repository
 @Setter
-@Getter
 public class UserDaoImpl implements UserDao {
 	@PersistenceContext
-    private EntityManager entityManager;
+	private EntityManager entityManager;
 
 	/**
 	 * {@inheritDoc}
@@ -44,8 +41,8 @@ public class UserDaoImpl implements UserDao {
 	 * {@inheritDoc}
 	 */
 	public Collection<User> findByFirstName(String first) {
-		// TODO Auto-generated method stub
-		return null;
+		return entityManager.createQuery("SELECT u FROM User u WHERE u.firstName = :firstName")
+				.setParameter("firstName", first).getResultList();
 	}
-	
+
 }

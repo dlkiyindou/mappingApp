@@ -1,5 +1,7 @@
 package fr.scholanova.group.java;
 
+import java.util.Collection;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -24,6 +26,9 @@ public class App
 		user.setLastName("DOE");
 		userService.save(user);
 
+		Collection<User> users = userService.getByFirstName("John");
+		
+		System.out.println(users);
 
 //		GenericConversionService cs = new DefaultConversionService();
 //
