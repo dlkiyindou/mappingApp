@@ -16,7 +16,8 @@
     http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 	<context:component-scan base-package="fr.scholanova.group.java" />
-	<bean id="user" class="fr.scholanova.group.java.entities.User"></bean>
+	<context:annotation-config />
+
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="classpath:jdbc.properties" />
@@ -57,13 +58,4 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	<!-- post-processors for all standard config annotations -->
-	<context:annotation-config />
-	<bean id="userDao" class="fr.scholanova.group.java.dao.UserDaoImpl">
-		<property name="entityManager" ref="entityManager" />
-	</bean>
-
-	<bean id="userService" class="fr.scholanova.group.java.services.UserServiceImpl">
-		<property name="userDao" ref="userDao" />
-	</bean>
-
 </beans>

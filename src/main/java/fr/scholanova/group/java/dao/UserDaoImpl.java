@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import fr.scholanova.group.java.entities.User;
 import lombok.Setter;
 
-@Repository
+@Repository("userDao")
 @Setter
 public class UserDaoImpl implements UserDao {
 	@PersistenceContext
